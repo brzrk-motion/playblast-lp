@@ -21,45 +21,74 @@ function ExternalLink({
   )
 }
 
+function FrameMotif() {
+  return (
+    <div className="frame-motif" aria-hidden="true">
+      <div className="frame-motif__screen">
+        <div className="frame-motif__scan" />
+        <div className="frame-motif__timecode">
+          <span>00:00:14:07</span>
+          <span>v03 · internal cut</span>
+        </div>
+        <div className="frame-motif__markers">
+          <span style={{ left: '18%' }} />
+          <span style={{ left: '42%' }} />
+          <span style={{ left: '71%' }} />
+        </div>
+      </div>
+      <div className="frame-motif__rail">
+        <span className="frame-motif__playhead" />
+      </div>
+    </div>
+  )
+}
+
 function Hero() {
   return (
-    <section className="hero" aria-labelledby="hero-heading">
-      <p className="eyebrow">Playblast</p>
-      <h1 id="hero-heading">
-        Private review for the work your studio is already making.
-      </h1>
-      <p className="subhead">
-        Free, open-source video proofing for small motion, CGI, animation, and
-        video studios. Versions, comments, frame annotations, compare, and
-        approvals — media on infrastructure you control.
-      </p>
-      <p className="status-line">
-        Self-hosted MVP release candidate. Core proofing loop exists;
-        independent clean-install / adoption checks still in progress. Not
-        commercially validated. Not hosted. No support package.
-      </p>
-      <p className="status-helper">You run it; we don&apos;t host or support.</p>
-      <div className="cta-group">
-        <ExternalLink href={LINKS.github} className="btn btn-primary">
-          Explore Playblast on GitHub
-        </ExternalLink>
-        <ExternalLink href={LINKS.installGuide} className="btn btn-secondary">
-          Read the installation guide
-        </ExternalLink>
+    <section className="hero reveal-hero" aria-labelledby="hero-heading">
+      <div className="hero__copy">
+        <p className="kicker">Playblast</p>
+        <h1 id="hero-heading">
+          Private review for the work your studio is already making.
+        </h1>
+        <p className="subhead">
+          Free, open-source video proofing for small motion, CGI, animation, and
+          video studios. Versions, comments, frame annotations, compare, and
+          approvals — media on infrastructure you control.
+        </p>
+        <div className="cta-group">
+          <ExternalLink href={LINKS.github} className="btn btn-primary">
+            Explore Playblast on GitHub
+          </ExternalLink>
+          <ExternalLink href={LINKS.installGuide} className="btn btn-secondary">
+            Read the installation guide
+          </ExternalLink>
+        </div>
+        <aside className="status-block">
+          <p className="status-line">
+            Self-hosted MVP release candidate. Core proofing loop exists;
+            independent clean-install / adoption checks still in progress. Not
+            commercially validated. Not hosted. No support package.
+          </p>
+          <p className="status-helper">You run it; we don&apos;t host or support.</p>
+        </aside>
       </div>
+      <FrameMotif />
     </section>
   )
 }
 
 function Problem() {
   return (
-    <section className="section" aria-labelledby="problem-heading">
-      <h2 id="problem-heading">Feedback shouldn&apos;t live in five places</h2>
-      <p>
-        Version notes in email. Frame feedback in chat. Drive links for cuts
-        that don&apos;t match the thread. Approvals buried where nobody will
-        find them next week — with no single source of truth tied to the media.
-      </p>
+    <section className="section section--problem reveal-slide" aria-labelledby="problem-heading">
+      <div className="section__inner section__inner--offset">
+        <h2 id="problem-heading">Feedback shouldn&apos;t live in five places</h2>
+        <p className="prose">
+          Version notes in email. Frame feedback in chat. Drive links for cuts
+          that don&apos;t match the thread. Approvals buried where nobody will
+          find them next week — with no single source of truth tied to the media.
+        </p>
+      </div>
     </section>
   )
 }
@@ -99,25 +128,29 @@ const STEPS = [
 
 function TheLoop() {
   return (
-    <section className="section" aria-labelledby="loop-heading">
-      <h2 id="loop-heading">The loop</h2>
-      <p className="section-intro">
-        Versions → frame-aware feedback → compare → approve — on infrastructure
-        you control.
-      </p>
-      <ol className="steps">
-        {STEPS.map((step, i) => (
-          <li key={step.title}>
-            <span className="step-num" aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+    <section className="section section--loop reveal-stagger" aria-labelledby="loop-heading">
+      <div className="section__inner section__inner--wide">
+        <div className="loop-header">
+          <h2 id="loop-heading">The loop</h2>
+          <p className="section-intro">
+            Versions → frame-aware feedback → compare → approve — on infrastructure
+            you control.
+          </p>
+        </div>
+        <ol className="timeline">
+          {STEPS.map((step, i) => (
+            <li key={step.title} className="timeline__item">
+              <span className="timeline__marker" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div className="timeline__body">
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   )
 }
@@ -142,22 +175,24 @@ const YOU_DONT_GET = [
 
 function GetAndDontGet() {
   return (
-    <section className="section split" aria-labelledby="get-heading">
-      <div>
-        <h2 id="get-heading">What you get</h2>
-        <ul>
-          {YOU_GET.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>What you don&apos;t get</h2>
-        <ul className="dont-list">
-          {YOU_DONT_GET.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+    <section className="section section--split reveal-fade" aria-labelledby="get-heading">
+      <div className="split-grid">
+        <div className="split-panel split-panel--get">
+          <h2 id="get-heading">What you get</h2>
+          <ul className="check-list">
+            {YOU_GET.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="split-panel split-panel--dont">
+          <h2>What you don&apos;t get</h2>
+          <ul className="cross-list">
+            {YOU_DONT_GET.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
@@ -165,29 +200,35 @@ function GetAndDontGet() {
 
 function SelfHost() {
   return (
-    <section className="section callout" aria-labelledby="selfhost-heading">
-      <h2 id="selfhost-heading">You operate the instance</h2>
-      <p>
-        Playblast runs where you put it. That means your team owns Docker,
-        networking, HTTPS or VPN access, backups, SMTP for notifications, and
-        who can reach the server. We publish the software and docs; you run the
-        environment.
-      </p>
-      <p>
-        Independent clean-install and NAS verification is still in progress—treat
-        this as a release candidate and plan time to validate your setup.
-      </p>
-      <ExternalLink href={LINKS.installGuide} className="text-link">
-        Read the installation guide →
-      </ExternalLink>
+    <section className="section section--selfhost reveal-rise" aria-labelledby="selfhost-heading">
+      <div className="selfhost-band">
+        <div className="selfhost-band__inner">
+          <h2 id="selfhost-heading">You operate the instance</h2>
+          <div className="selfhost-band__prose">
+            <p>
+              Playblast runs where you put it. That means your team owns Docker,
+              networking, HTTPS or VPN access, backups, SMTP for notifications, and
+              who can reach the server. We publish the software and docs; you run the
+              environment.
+            </p>
+            <p>
+              Independent clean-install and NAS verification is still in progress—treat
+              this as a release candidate and plan time to validate your setup.
+            </p>
+          </div>
+          <ExternalLink href={LINKS.installGuide} className="text-link">
+            Read the installation guide →
+          </ExternalLink>
+        </div>
+      </div>
     </section>
   )
 }
 
 function SoftCtas() {
   return (
-    <section className="section cta-strip" aria-label="Explore and contribute">
-      <nav className="cta-strip-nav">
+    <section className="section section--cta-strip" aria-label="Explore and contribute">
+      <nav className="cta-strip">
         <ExternalLink href={LINKS.github}>Explore GitHub</ExternalLink>
         <span className="cta-sep" aria-hidden="true">·</span>
         <ExternalLink href={LINKS.installGuide}>Read install docs</ExternalLink>
@@ -200,16 +241,18 @@ function SoftCtas() {
 
 function Funding() {
   return (
-    <section className="section funding" aria-labelledby="funding-heading">
-      <h2 id="funding-heading">Optional funding for maintenance</h2>
-      <p>
-        If Playblast is useful, you can sponsor or donate via GitHub Sponsors.
-        That helps fund ongoing maintenance—it does not purchase support,
-        hosting, or a service agreement from brzrk.
-      </p>
-      <ExternalLink href={LINKS.sponsor} className="btn btn-ghost">
-        Sponsor on GitHub
-      </ExternalLink>
+    <section className="section section--funding reveal-fade" aria-labelledby="funding-heading">
+      <div className="funding-block">
+        <h2 id="funding-heading">Optional funding for maintenance</h2>
+        <p>
+          If Playblast is useful, you can sponsor or donate via GitHub Sponsors.
+          That helps fund ongoing maintenance—it does not purchase support,
+          hosting, or a service agreement from brzrk.
+        </p>
+        <ExternalLink href={LINKS.sponsor} className="btn btn-ghost">
+          Sponsor on GitHub
+        </ExternalLink>
+      </div>
     </section>
   )
 }
@@ -244,8 +287,16 @@ function Footer() {
 export default function App() {
   return (
     <div className="page">
+      <div className="page__ambient" aria-hidden="true" />
       <header className="site-header">
-        <span className="logo" aria-hidden="true">▶</span>
+        <span className="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M6 4.5L15 10L6 15.5V4.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
         <span className="site-name">Playblast</span>
       </header>
       <main>

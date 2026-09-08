@@ -97,6 +97,18 @@ When changing marketing copy, prefer editing `src/App.tsx` and `src/constants.ts
 - Release candidate — validate your own setup
 - Optional GitHub Sponsors for maintenance (not support)
 
+## Visual / design work
+
+All visual, layout, typography, color, and motion changes on this repo **must** follow the **impeccable** design craft standard (Cursor impeccable skill) in the **brand / marketing** register:
+
+- OKLCH color tokens; no cream/sand/beige AI-default body backgrounds
+- Intentional typography pairing (not generic Inter/DM Sans/system-flat stacks)
+- Asymmetric rhythm, strong hierarchy; funding stays below the fold
+- Intentional entrance motion with `prefers-reduced-motion` alternatives; content visible by default (no JS-gated reveals)
+- See `DESIGN.md` for committed tokens and decisions
+
+Do not change locked copy meaning, CTA labels/URLs, or section order without explicit approval.
+
 ## Technical notes
 
 - `npm run build` must succeed before merging
