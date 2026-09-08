@@ -1,4 +1,5 @@
-import { LINKS } from './constants'
+import { LINKS, SCREENSHOTS, SPONSORSHIP_DISCLAIMER, SPONSORSHIP_TIERS } from './constants'
+import { HeroShader } from './components/HeroShader'
 
 function ExternalLink({
   href,
@@ -21,24 +22,11 @@ function ExternalLink({
   )
 }
 
-function FrameMotif() {
+function HeroTimestamp() {
   return (
-    <div className="frame-motif" aria-hidden="true">
-      <div className="frame-motif__screen">
-        <div className="frame-motif__scan" />
-        <div className="frame-motif__timestamp">
-          <span>00:14</span>
-          <span>v03 · internal cut</span>
-        </div>
-        <div className="frame-motif__markers">
-          <span style={{ left: '18%' }} />
-          <span style={{ left: '42%' }} />
-          <span style={{ left: '71%' }} />
-        </div>
-      </div>
-      <div className="frame-motif__rail">
-        <span className="frame-motif__playhead" />
-      </div>
+    <div className="hero-timestamp" aria-hidden="true">
+      <span>00:14</span>
+      <span>v03 · internal cut</span>
     </div>
   )
 }
@@ -73,7 +61,10 @@ function Hero() {
           <p className="status-helper">You run it; we don&apos;t host or support.</p>
         </aside>
       </div>
-      <FrameMotif />
+      <div className="hero__visual">
+        <HeroShader className="hero__shader" />
+        <HeroTimestamp />
+      </div>
     </section>
   )
 }
@@ -150,6 +141,34 @@ function TheLoop() {
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+  )
+}
+
+function Screenshots() {
+  return (
+    <section className="section section--screenshots reveal-fade" aria-labelledby="screenshots-heading">
+      <div className="section__inner section__inner--wide">
+        <div className="screenshots-header">
+          <h2 id="screenshots-heading">Inside the proofing room</h2>
+          <p className="section-intro">
+            Playback, compare, frame markup, and project tracking — the core
+            loop in one self-hosted interface. Studio Demo seed data shown.
+          </p>
+        </div>
+        <ul className="screenshot-gallery">
+          {SCREENSHOTS.map((shot) => (
+            <li key={shot.caption} className="screenshot-card">
+              <figure>
+                <div className="screenshot-card__frame">
+                  <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+                </div>
+                <figcaption>{shot.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
@@ -243,15 +262,40 @@ function Funding() {
   return (
     <section className="section section--funding reveal-fade" aria-labelledby="funding-heading">
       <div className="funding-block">
-        <h2 id="funding-heading">Optional funding for maintenance</h2>
-        <p>
-          If Playblast is useful, you can sponsor or donate via GitHub Sponsors.
-          That helps fund ongoing maintenance—it does not purchase support,
-          hosting, or a service agreement from brzrk.
+        <h2 id="funding-heading">Optional sponsorship</h2>
+        <ul className="tier-grid">
+          {SPONSORSHIP_TIERS.map((tier) => (
+            <li key={tier.name} className="tier-card">
+              <div className="tier-card__head">
+                <h3>{tier.name}</h3>
+                <p className="tier-card__price">
+                  <span className="tier-card__amount">{tier.amount}</span>
+                  <span className="tier-card__period">{tier.period}</span>
+                </p>
+              </div>
+              <p className="tier-card__recognition">{tier.recognition}</p>
+              <p className="tier-card__boundary">
+                Recognition only —{' '}
+                <a href="#sponsorship-disclaimer" className="tier-card__disclaimer-link">
+                  see disclaimer below
+                </a>
+                .
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p id="sponsorship-disclaimer" className="funding-footer">
+          {SPONSORSHIP_DISCLAIMER}
         </p>
-        <ExternalLink href={LINKS.sponsor} className="btn btn-ghost">
-          Sponsor on GitHub
-        </ExternalLink>
+        <div className="funding-cta">
+          <p className="funding-cta__note">GitHub Sponsors coming online.</p>
+          <ExternalLink href={LINKS.sponsorsDoc} className="text-link funding-doc-link">
+            Read SPONSORS.md →
+          </ExternalLink>
+          <ExternalLink href={LINKS.discussions} className="text-link funding-doc-link">
+            Join Discussions →
+          </ExternalLink>
+        </div>
       </div>
     </section>
   )
@@ -272,7 +316,7 @@ function Footer() {
             <ExternalLink href={LINKS.issues}>Issues</ExternalLink>
           </li>
           <li>
-            <ExternalLink href={LINKS.sponsor}>Sponsor</ExternalLink>
+            <ExternalLink href={LINKS.sponsorsDoc}>Sponsor</ExternalLink>
           </li>
         </ul>
       </nav>
@@ -303,6 +347,7 @@ export default function App() {
         <Hero />
         <Problem />
         <TheLoop />
+        <Screenshots />
         <GetAndDontGet />
         <SelfHost />
         <SoftCtas />
