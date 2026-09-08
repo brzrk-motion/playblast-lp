@@ -26,8 +26,8 @@ function FrameMotif() {
     <div className="frame-motif" aria-hidden="true">
       <div className="frame-motif__screen">
         <div className="frame-motif__scan" />
-        <div className="frame-motif__timecode">
-          <span>00:00:14:07</span>
+        <div className="frame-motif__timestamp">
+          <span>00:14</span>
           <span>v03 · internal cut</span>
         </div>
         <div className="frame-motif__markers">
