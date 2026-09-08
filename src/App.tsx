@@ -29,11 +29,16 @@ function Hero() {
         Private review for the work your studio is already making.
       </h1>
       <p className="subhead">
-        Playblast is free, open-source video proofing for small motion-design,
-        CGI, animation, and video studios. Keep versions, comments, annotations,
-        comparisons, and approvals in one place—without moving large media into
-        someone else&apos;s cloud.
+        Free, open-source video proofing for small motion, CGI, animation, and
+        video studios. Versions, comments, frame annotations, compare, and
+        approvals — media on infrastructure you control.
       </p>
+      <p className="status-line">
+        Self-hosted MVP release candidate. Core proofing loop exists;
+        independent clean-install / adoption checks still in progress. Not
+        commercially validated. Not hosted. No support package.
+      </p>
+      <p className="status-helper">You run it; we don&apos;t host or support.</p>
       <div className="cta-group">
         <ExternalLink href={LINKS.github} className="btn btn-primary">
           Explore Playblast on GitHub
@@ -42,13 +47,6 @@ function Hero() {
           Read the installation guide
         </ExternalLink>
       </div>
-      <p className="status-line">
-        Self-hosted MVP release candidate. Free, open-source. You run it; we
-        don&apos;t host or support.
-      </p>
-      <p className="secondary-cta">
-        <ExternalLink href={LINKS.issues}>Report an issue</ExternalLink>
-      </p>
     </section>
   )
 }
@@ -58,14 +56,9 @@ function Problem() {
     <section className="section" aria-labelledby="problem-heading">
       <h2 id="problem-heading">Feedback shouldn&apos;t live in five places</h2>
       <p>
-        Version notes in email. Frame feedback in chat. A Drive link for the
-        latest cut. Another link for the previous one. Approvals buried in a
-        thread nobody can find next week.
-      </p>
-      <p>
-        Small studios lose time reconciling scattered feedback—and risk shipping
-        the wrong version because nobody had a single source of truth tied to
-        the actual media.
+        Version notes in email. Frame feedback in chat. Drive links for cuts
+        that don&apos;t match the thread. Approvals buried where nobody will
+        find them next week — with no single source of truth tied to the media.
       </p>
     </section>
   )
@@ -73,41 +66,45 @@ function Problem() {
 
 const STEPS = [
   {
-    title: 'Install with Docker',
+    title: 'Install on your infrastructure',
     body:
-      'Deploy on your NAS or Linux server. One studio per instance—your infrastructure, your rules.',
+      'Deploy with Docker on NAS or Linux. One studio per instance — media stays on hardware you control.',
   },
   {
-    title: 'Create a project',
+    title: 'Set up a project',
     body:
-      'Set up a review space for a job, reel, or internal piece. No external cloud upload required.',
+      'Create a project with deliverables for a job, reel, or internal piece.',
   },
   {
     title: 'Upload versions',
     body:
-      'Add cuts and iterations as they land. Every version stays on hardware you control.',
+      'Add cuts and iterations as they land. Every version lives on your server.',
   },
   {
-    title: 'Comment and annotate',
+    title: 'Leave frame-aware feedback',
     body:
-      'Timestamped notes and frame annotations keep feedback tied to the exact moment in the cut.',
+      'Timestamped comments and frame annotations tie notes to the exact moment in the cut.',
   },
   {
     title: 'Compare side by side',
     body:
-      'Line up versions to see what changed—without exporting comparison reels by hand.',
+      'Line up versions to see what changed — without exporting comparison reels by hand.',
   },
   {
     title: 'Approve and track history',
     body:
-      'Record approvals and review history so the team knows what was signed off and when.',
+      'Move deliverables through approval states. Review history shows what was signed off and when.',
   },
 ]
 
-function HowItWorks() {
+function TheLoop() {
   return (
-    <section className="section" aria-labelledby="how-heading">
-      <h2 id="how-heading">How it works</h2>
+    <section className="section" aria-labelledby="loop-heading">
+      <h2 id="loop-heading">The loop</h2>
+      <p className="section-intro">
+        Versions → frame-aware feedback → compare → approve — on infrastructure
+        you control.
+      </p>
       <ol className="steps">
         {STEPS.map((step, i) => (
           <li key={step.title}>
@@ -126,21 +123,21 @@ function HowItWorks() {
 }
 
 const YOU_GET = [
-  'Versioned video review on infrastructure you run',
+  'Projects, deliverables, and versions',
   'Timestamped comments and frame annotations',
   'Side-by-side version comparison',
-  'Approvals and review history',
-  'Docker deployment for NAS or Linux',
-  'One studio per instance—no multi-tenant SaaS',
-  'Free and open-source (no license fee to brzrk)',
+  'Approval states and review history',
+  'Admin, Creative, and Proofing roles',
+  'Docs and public issues as the support boundary',
 ]
 
 const YOU_DONT_GET = [
-  'brzrk-hosted cloud—there is no SaaS offering',
+  'Hosted SaaS — brzrk does not run your instance',
   'Founder install or white-glove onboarding',
-  'Paid support SLA or managed operations from brzrk',
-  'A guarantee that every NAS or network setup will work without your ops work',
-  'Commercial validation or “studios everywhere” readiness claims',
+  'Support SLA or managed operations from brzrk',
+  'CRM, invoicing, or studio ops suite',
+  'Guest or client share links (deferred)',
+  'Every pro codec, mobile app, or timecode/scrub feature as a pitch',
 ]
 
 function GetAndDontGet() {
@@ -187,9 +184,23 @@ function SelfHost() {
   )
 }
 
+function SoftCtas() {
+  return (
+    <section className="section cta-strip" aria-label="Explore and contribute">
+      <nav className="cta-strip-nav">
+        <ExternalLink href={LINKS.github}>Explore GitHub</ExternalLink>
+        <span className="cta-sep" aria-hidden="true">·</span>
+        <ExternalLink href={LINKS.installGuide}>Read install docs</ExternalLink>
+        <span className="cta-sep" aria-hidden="true">·</span>
+        <ExternalLink href={LINKS.issues}>Report an issue</ExternalLink>
+      </nav>
+    </section>
+  )
+}
+
 function Funding() {
   return (
-    <section className="section" aria-labelledby="funding-heading">
+    <section className="section funding" aria-labelledby="funding-heading">
       <h2 id="funding-heading">Optional support for maintenance</h2>
       <p>
         If Playblast is useful, you can sponsor or donate via GitHub Sponsors.
@@ -240,9 +251,10 @@ export default function App() {
       <main>
         <Hero />
         <Problem />
-        <HowItWorks />
+        <TheLoop />
         <GetAndDontGet />
         <SelfHost />
+        <SoftCtas />
         <Funding />
       </main>
       <Footer />
