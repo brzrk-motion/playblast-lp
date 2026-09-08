@@ -76,7 +76,7 @@ Shared disclaimer once at section level (`#sponsorship-disclaimer`); tier cards 
 
 > Sponsorship funds general maintenance and development of Playblast. It does not purchase private support, response times, roadmap control, hosting, installation, or priority security treatment. You run your own instance.
 
-CTA: GitHub Sponsors coming online; interim links to Playblast `SPONSORS.md` and Discussions — no fake checkout.
+CTA: GitHub Sponsors coming online; interim links to Playblast `SPONSORS.md` (`development-mvp` branch) and Discussions — no fake checkout.
 
 ## Bans observed
 

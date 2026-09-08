@@ -4,7 +4,7 @@ export const LINKS = {
     'https://brzrk-motion.github.io/Playblast/deployment/install-linux-nas',
   issues: 'https://github.com/brzrk-motion/Playblast/issues',
   sponsorsDoc:
-    'https://github.com/brzrk-motion/Playblast/blob/main/SPONSORS.md',
+    'https://github.com/brzrk-motion/Playblast/blob/development-mvp/SPONSORS.md',
   discussions: 'https://github.com/brzrk-motion/Playblast/discussions',
 } as const
 
