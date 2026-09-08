@@ -33,7 +33,7 @@ Fluid `clamp()` scale, ~1.25 ratio. Hero max `4.5rem` (≤6rem ceiling). Display
 - Asymmetric hero: copy left, **vgpu WebGPU shader** right (ambient review-room fragment effect); `00:14` timestamp overlay preserved for honesty
 - Problem: offset left rule + indented copy
 - Loop: vertical timeline with staggered even rows — not identical card grid
-- **Screenshots**: 2×2 gallery after loop; drop-in PNGs at `public/screenshots/{review,compare,annotate,projects}.png`
+- **Screenshots**: 2×2 gallery after loop; authentic UI captures at `public/screenshots/{review,compare,annotate,projects}.png` (Studio Demo seed data)
 - Get / Don't: asymmetric columns (1.15 / 0.85); get panel surfaced, don't de-emphasized
 - Self-host: full-bleed band, content offset right
 - CTA strip: accent-tinted band, clear hierarchy

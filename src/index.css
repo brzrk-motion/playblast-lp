@@ -763,6 +763,14 @@ main {
   color: var(--ink-muted);
 }
 
+.tier-card__recognition {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  text-wrap: pretty;
+  margin: 0 0 var(--space-md);
+  flex: 1;
+}
+
 .tier-card__benefits {
   list-style: none;
   margin: 0 0 var(--space-md);

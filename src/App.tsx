@@ -153,8 +153,8 @@ function Screenshots() {
         <div className="screenshots-header">
           <h2 id="screenshots-heading">Inside the proofing room</h2>
           <p className="section-intro">
-            Review, compare, annotate, and track projects — the core loop in one
-            self-hosted interface.
+            Playback, compare, frame markup, and project tracking — the core
+            loop in one self-hosted interface. Studio Demo seed data shown.
           </p>
         </div>
         <ul className="screenshot-gallery">

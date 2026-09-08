@@ -15,23 +15,27 @@ export const BASE = import.meta.env.BASE_URL
 export const SCREENSHOTS = [
   {
     src: `${BASE}screenshots/review.png`,
-    alt: 'Playblast review view with timestamped comments on a cut',
-    caption: 'Review',
+    alt:
+      'Playblast review player showing a deliverable cut with timestamped comments in the sidebar',
+    caption: 'Timestamped comments on the cut',
   },
   {
     src: `${BASE}screenshots/compare.png`,
-    alt: 'Side-by-side version comparison in Playblast',
-    caption: 'Compare',
+    alt:
+      'Playblast compare view with two versions in synced side-by-side playback',
+    caption: 'Synced side-by-side compare',
   },
   {
     src: `${BASE}screenshots/annotate.png`,
-    alt: 'Frame annotation and markup in Playblast',
-    caption: 'Annotate',
+    alt:
+      'Playblast review player with frame annotation markup on a video frame',
+    caption: 'Frame annotations on the lockup',
   },
   {
     src: `${BASE}screenshots/projects.png`,
-    alt: 'Projects and deliverables in Playblast',
-    caption: 'Projects',
+    alt:
+      'Playblast projects list showing deliverables, budgets, and status per job',
+    caption: 'Deliverables and status per job',
   },
 ] as const
 
