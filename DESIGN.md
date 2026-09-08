@@ -37,7 +37,7 @@ Fluid `clamp()` scale, ~1.25 ratio. Hero max `4.5rem` (≤6rem ceiling). Display
 - Get / Don't: asymmetric columns (1.15 / 0.85); get panel surfaced, don't de-emphasized
 - Self-host: full-bleed band, content offset right
 - CTA strip: accent-tinted band, clear hierarchy
-- **Sponsorship tiers**: 5 recognition-only cards ($10–$1000/mo), below fold; funding ≠ support
+- **Sponsorship tiers**: 5 recognition-only cards ($10–$1000/mo), below fold; H2 **Optional sponsorship**; funding ≠ support
 - Funding: quieter opacity, below fold
 
 ## Hero shader (vgpu)
@@ -72,7 +72,7 @@ Recognition-only ladder — never “support packages,” “plans,” or “SLA
 | 500 | Anchor | Larger logo; named in quarterly public report |
 | 1000 | Founding partner | Top placement; optional case-study/quote with written permission |
 
-Shared disclaimer on every card and section footer:
+Shared disclaimer once at section level (`#sponsorship-disclaimer`); tier cards say “Recognition only” with anchor link.
 
 > Sponsorship funds general maintenance and development of Playblast. It does not purchase private support, response times, roadmap control, hosting, installation, or priority security treatment. You run your own instance.
 

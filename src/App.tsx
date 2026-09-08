@@ -262,7 +262,7 @@ function Funding() {
   return (
     <section className="section section--funding reveal-fade" aria-labelledby="funding-heading">
       <div className="funding-block">
-        <h2 id="funding-heading">Sponsorship tiers</h2>
+        <h2 id="funding-heading">Optional sponsorship</h2>
         <ul className="tier-grid">
           {SPONSORSHIP_TIERS.map((tier) => (
             <li key={tier.name} className="tier-card">
@@ -274,11 +274,19 @@ function Funding() {
                 </p>
               </div>
               <p className="tier-card__recognition">{tier.recognition}</p>
-              <p className="tier-card__boundary">{SPONSORSHIP_DISCLAIMER}</p>
+              <p className="tier-card__boundary">
+                Recognition only —{' '}
+                <a href="#sponsorship-disclaimer" className="tier-card__disclaimer-link">
+                  see disclaimer below
+                </a>
+                .
+              </p>
             </li>
           ))}
         </ul>
-        <p className="funding-footer">{SPONSORSHIP_DISCLAIMER}</p>
+        <p id="sponsorship-disclaimer" className="funding-footer">
+          {SPONSORSHIP_DISCLAIMER}
+        </p>
         <div className="funding-cta">
           <p className="funding-cta__note">GitHub Sponsors coming online.</p>
           <ExternalLink href={LINKS.sponsorsDoc} className="text-link funding-doc-link">

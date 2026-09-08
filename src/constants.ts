@@ -3,7 +3,6 @@ export const LINKS = {
   installGuide:
     'https://brzrk-motion.github.io/Playblast/deployment/install-linux-nas',
   issues: 'https://github.com/brzrk-motion/Playblast/issues',
-  sponsor: 'https://github.com/sponsors/brzrk-motion',
   sponsorsDoc:
     'https://github.com/brzrk-motion/Playblast/blob/main/SPONSORS.md',
   discussions: 'https://github.com/brzrk-motion/Playblast/discussions',
@@ -34,7 +33,7 @@ export const SCREENSHOTS = [
   {
     src: `${BASE}screenshots/projects.png`,
     alt:
-      'Playblast projects list showing deliverables, budgets, and status per job',
+      'Playblast projects list showing deliverables and status per job',
     caption: 'Deliverables and status per job',
   },
 ] as const
