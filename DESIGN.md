@@ -62,17 +62,21 @@ Reduced motion: no transitions on buttons; shader static frame; CSS fallback onl
 
 ## Sponsorship tiers
 
-Recognition-only ladder — never “support packages”:
+Recognition-only ladder — never “support packages,” “plans,” or “SLA tiers”:
 
-| Tier | Amount | Recognition |
-|------|--------|-------------|
-| Friend | $10/mo | Thanks + name on sponsors page |
-| Studio | $50/mo | Logo + thanks |
-| Production | $150/mo | Prominent logo + quarterly report |
-| Anchor | $500/mo | Featured placement + quarterly report |
-| Founding partner | $1000/mo | Top-tier recognition + quarterly report |
+| $/mo | Name | Recognition |
+|------|------|-------------|
+| 10 | Friend | Name on sponsors list |
+| 50 | Studio | Name + link |
+| 150 | Production | Logo + link (sponsors page + LP) |
+| 500 | Anchor | Larger logo; named in quarterly public report |
+| 1000 | Founding partner | Top placement; optional case-study/quote with written permission |
 
-Every card states funding does not purchase support, SLA, roadmap control, or hosting. CTA: GitHub Sponsors; interim link to Playblast `SPONSORS.md`.
+Shared disclaimer on every card and section footer:
+
+> Sponsorship funds general maintenance and development of Playblast. It does not purchase private support, response times, roadmap control, hosting, installation, or priority security treatment. You run your own instance.
+
+CTA: GitHub Sponsors coming online; interim links to Playblast `SPONSORS.md` and Discussions — no fake checkout.
 
 ## Bans observed
 

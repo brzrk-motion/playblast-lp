@@ -1,4 +1,4 @@
-import { LINKS, SCREENSHOTS, SPONSORSHIP_TIERS } from './constants'
+import { LINKS, SCREENSHOTS, SPONSORSHIP_DISCLAIMER, SPONSORSHIP_TIERS } from './constants'
 import { HeroShader } from './components/HeroShader'
 
 function ExternalLink({
@@ -263,10 +263,6 @@ function Funding() {
     <section className="section section--funding reveal-fade" aria-labelledby="funding-heading">
       <div className="funding-block">
         <h2 id="funding-heading">Sponsorship tiers</h2>
-        <p className="funding-intro">
-          Optional funding for maintenance — recognition only. Sponsorship does
-          not purchase support, an SLA, roadmap control, or hosting from brzrk.
-        </p>
         <ul className="tier-grid">
           {SPONSORSHIP_TIERS.map((tier) => (
             <li key={tier.name} className="tier-card">
@@ -277,23 +273,19 @@ function Funding() {
                   <span className="tier-card__period">{tier.period}</span>
                 </p>
               </div>
-              <ul className="tier-card__benefits">
-                {tier.benefits.map((benefit) => (
-                  <li key={benefit}>{benefit}</li>
-                ))}
-              </ul>
-              <p className="tier-card__boundary">
-                Funding only — not support, SLA, or hosting.
-              </p>
+              <p className="tier-card__recognition">{tier.recognition}</p>
+              <p className="tier-card__boundary">{SPONSORSHIP_DISCLAIMER}</p>
             </li>
           ))}
         </ul>
+        <p className="funding-footer">{SPONSORSHIP_DISCLAIMER}</p>
         <div className="funding-cta">
-          <ExternalLink href={LINKS.sponsor} className="btn btn-ghost">
-            Sponsor on GitHub
-          </ExternalLink>
+          <p className="funding-cta__note">GitHub Sponsors coming online.</p>
           <ExternalLink href={LINKS.sponsorsDoc} className="text-link funding-doc-link">
-            Read sponsorship details →
+            Read SPONSORS.md →
+          </ExternalLink>
+          <ExternalLink href={LINKS.discussions} className="text-link funding-doc-link">
+            Join Discussions →
           </ExternalLink>
         </div>
       </div>
@@ -316,7 +308,7 @@ function Footer() {
             <ExternalLink href={LINKS.issues}>Issues</ExternalLink>
           </li>
           <li>
-            <ExternalLink href={LINKS.sponsor}>Sponsor</ExternalLink>
+            <ExternalLink href={LINKS.sponsorsDoc}>Sponsor</ExternalLink>
           </li>
         </ul>
       </nav>

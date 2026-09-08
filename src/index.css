@@ -796,6 +796,15 @@ main {
   margin: 0;
   padding-top: var(--space-sm);
   border-top: 1px solid var(--line-subtle);
+  text-wrap: pretty;
+}
+
+.funding-footer {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  text-wrap: pretty;
+  max-width: var(--prose-width);
+  margin: 0 0 var(--space-lg);
 }
 
 .funding-cta {
@@ -803,6 +812,12 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-md);
+}
+
+.funding-cta__note {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  margin: 0;
 }
 
 .funding-doc-link {

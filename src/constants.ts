@@ -6,6 +6,7 @@ export const LINKS = {
   sponsor: 'https://github.com/sponsors/brzrk-motion',
   sponsorsDoc:
     'https://github.com/brzrk-motion/Playblast/blob/main/SPONSORS.md',
+  discussions: 'https://github.com/brzrk-motion/Playblast/discussions',
 } as const
 
 /** Base path for GitHub Pages deploy */
@@ -34,53 +35,39 @@ export const SCREENSHOTS = [
   },
 ] as const
 
+export const SPONSORSHIP_DISCLAIMER =
+  'Sponsorship funds general maintenance and development of Playblast. It does not purchase private support, response times, roadmap control, hosting, installation, or priority security treatment. You run your own instance.'
+
 export const SPONSORSHIP_TIERS = [
   {
     name: 'Friend',
     amount: '$10',
     period: '/ month',
-    benefits: [
-      'Public thanks in release notes',
-      'Name listed on the sponsors page',
-    ],
+    recognition: 'Name on sponsors list',
   },
   {
     name: 'Studio',
     amount: '$50',
     period: '/ month',
-    benefits: [
-      'Logo on the sponsors page',
-      'Public thanks in release notes',
-    ],
+    recognition: 'Name + link',
   },
   {
     name: 'Production',
     amount: '$150',
     period: '/ month',
-    benefits: [
-      'Prominent logo placement on sponsors page',
-      'Public thanks in release notes',
-      'Quarterly transparent maintenance report',
-    ],
+    recognition: 'Logo + link (sponsors page + LP)',
   },
   {
     name: 'Anchor',
     amount: '$500',
     period: '/ month',
-    benefits: [
-      'Featured sponsor placement on sponsors page',
-      'Public thanks in release notes',
-      'Quarterly transparent maintenance report',
-    ],
+    recognition: 'Larger logo; named in quarterly public report',
   },
   {
     name: 'Founding partner',
     amount: '$1000',
     period: '/ month',
-    benefits: [
-      'Top-tier sponsor recognition on sponsors page',
-      'Public thanks in release notes',
-      'Quarterly transparent maintenance report',
-    ],
+    recognition:
+      'Top placement; optional case-study/quote with written permission',
   },
 ] as const
