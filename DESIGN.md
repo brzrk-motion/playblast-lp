@@ -30,24 +30,49 @@ Fluid `clamp()` scale, ~1.25 ratio. Hero max `4.5rem` (≤6rem ceiling). Display
 
 ## Layout
 
-- Asymmetric hero: copy left, abstract frame motif right (CSS-only, no stock photos per AGENTS.md)
+- Asymmetric hero: copy left, **vgpu WebGPU shader** right (ambient review-room fragment effect); `00:14` timestamp overlay preserved for honesty
 - Problem: offset left rule + indented copy
 - Loop: vertical timeline with staggered even rows — not identical card grid
+- **Screenshots**: 2×2 gallery after loop; drop-in PNGs at `public/screenshots/{review,compare,annotate,projects}.png`
 - Get / Don't: asymmetric columns (1.15 / 0.85); get panel surfaced, don't de-emphasized
 - Self-host: full-bleed band, content offset right
 - CTA strip: accent-tinted band, clear hierarchy
+- **Sponsorship tiers**: 5 recognition-only cards ($10–$1000/mo), below fold; funding ≠ support
 - Funding: quieter opacity, below fold
+
+## Hero shader (vgpu)
+
+- Package: [`vgpu`](https://github.com/vercel-labs/vgpu) with `hero-review.wgsl`
+- Effect: cool slate base, coral monitor bloom, timeline markers, scanlines, film grain
+- Left-side copy mask fades shader for legibility
+- `prefers-reduced-motion`: single static frame at `time = 0.35`, no animation loop
+- No WebGPU: CSS gradient fallback (`hero-shader-fallback`) matching palette
+- Vite: `@vgpu/wgsl/loader-vite` plugin for `.wgsl` imports
 
 ## Motion
 
 Content is **fully visible by default**. Animations enhance only when `prefers-reduced-motion: no-preference`:
 
-- Hero: staggered rise + blur on load
+- Hero: staggered rise + blur on load; shader animates via vgpu clock
 - Problem: slide-in on scroll (`animation-timeline: view()`)
 - Loop: staggered timeline items
-- Split / funding: fade; self-host: rise
+- Screenshots / split / funding: fade; self-host: rise
 
-Reduced motion: no transitions on buttons; static frame motif.
+Reduced motion: no transitions on buttons; shader static frame; CSS fallback only.
+
+## Sponsorship tiers
+
+Recognition-only ladder — never “support packages”:
+
+| Tier | Amount | Recognition |
+|------|--------|-------------|
+| Friend | $10/mo | Thanks + name on sponsors page |
+| Studio | $50/mo | Logo + thanks |
+| Production | $150/mo | Prominent logo + quarterly report |
+| Anchor | $500/mo | Featured placement + quarterly report |
+| Founding partner | $1000/mo | Top-tier recognition + quarterly report |
+
+Every card states funding does not purchase support, SLA, roadmap control, or hosting. CTA: GitHub Sponsors; interim link to Playblast `SPONSORS.md`.
 
 ## Bans observed
 
@@ -57,4 +82,7 @@ No side-stripe borders, gradient text, glassmorphism cards, identical card grids
 
 - Tokens + layout: `src/index.css`
 - Structure + locked copy: `src/App.tsx`
+- Shader: `src/shaders/hero-review.wgsl`, `src/components/HeroShader.tsx`
+- Screenshots: `public/screenshots/`, `src/constants.ts` (`SCREENSHOTS`)
+- Tiers: `src/constants.ts` (`SPONSORSHIP_TIERS`)
 - Fonts: `index.html`
