@@ -201,7 +201,7 @@ function SoftCtas() {
 function Funding() {
   return (
     <section className="section funding" aria-labelledby="funding-heading">
-      <h2 id="funding-heading">Optional support for maintenance</h2>
+      <h2 id="funding-heading">Optional funding for maintenance</h2>
       <p>
         If Playblast is useful, you can sponsor or donate via GitHub Sponsors.
         That helps fund ongoing maintenance—it does not purchase support,
